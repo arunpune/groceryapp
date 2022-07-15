@@ -36,34 +36,38 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(404).json(err));
 });
 
-router.route('/:id').delete((req, res) => {
+router.route("/:id").delete((req, res) => {
   Exercise.findByIdAndDelete(req.params.id)
-  .then((exercise) => { res.json('Deleted Exercise')})
-  .catch((err) => res.status(404).json(err));
-})
+    .then((exercise) => {
+      res.json("Deleted Exercise");
+    })
+    .catch((err) => res.status(404).json(err));
+});
 
-router.route('/update/:id').post((req, res) => {
+router.route("/update/:id").post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
   const duration = req.body.duration;
   const date = req.body.date;
-  
-  Exercise.findByIdAndUpdate(req.params.id, {
-    username: username,
-    description: description,
-    duration: duration,
-    date: date,
-  }, (err) => {
-    if (err) {
-      res.status(400).json('Error', err);
+
+  Exercise.findByIdAndUpdate(
+    req.params.id,
+    {
+      username: username,
+      description: description,
+      duration: duration,
+      date: date,
+    },
+    (err) => {
+      if (err) {
+        res.status(400).json("Error", err);
+      } else {
+        res.json("Updated Exercise");
+      }
     }
-    else {
-      res.json('Updated Exercise')
-    }
-  })
-  .catch((err) => {
-    res.status(400).json('Error', err);
-  })
-})
+  ).catch((err) => {
+    res.status(400).json("Error", err);
+  });
+});
 
 module.exports = router;

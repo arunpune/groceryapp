@@ -36,6 +36,21 @@ const Navbar = () => {
                 Create User
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/product">
+                Product List
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/storeorder">
+                StoreOrderForm
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cityorder">
+                StoreOrderHistory
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
