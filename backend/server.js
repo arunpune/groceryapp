@@ -38,8 +38,12 @@ const Role = db.role;
     process.exit();
   });
  */
+require("dotenv").config();
+const uri = process.env.ATLAS_URI;
+//const uri = dbConfig.ATLAS_URI;
+const PORT = process.env.PORT || 8080;
+//const PORT = dbConfig.PORT;
 
-const uri = dbConfig.ATLAS_URI;
 db.mongoose
   .connect(uri, {
     useNewUrlParser: true,
@@ -64,7 +68,8 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+//const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

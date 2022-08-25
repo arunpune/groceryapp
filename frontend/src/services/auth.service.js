@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/auth/";
+//Backend URL Values is stored in .env file
+//const API_URL = process.env.BASE_URL;
 
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {

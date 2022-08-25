@@ -2,6 +2,8 @@ import axios from "axios";
 import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/test/";
+//Backend URL Values is stored in .env file
+//const API_URL = process.env.BASE_URL;
 
 const getPublicContent = () => {
   return axios.get(API_URL + "all");
@@ -26,4 +28,4 @@ const userService = {
   getAdminBoard,
 };
 
-export default userService
+export default userService;
